@@ -1,0 +1,36 @@
+.INSTINCT {
+    width: 266px;
+    border: 5px solid !important;
+    border-color: yellow !important;
+}
+
+.MYSTIC {
+    width: 266px;
+    border: 5px solid !important;
+    border-color: blue !important;
+}
+
+.VALOR {
+    width: 266px;
+    border: 5px solid red !important;
+
+}
+
+.ANY {
+    width: 266px;
+    border: 5px solid black !important;
+}
+
+body {
+    color: #fff;
+    background: #141414 !important;
+}
+
+.content {
+    color: #141414;
+    background: lightgrey;
+}
+
+.trainer_code {
+    text-align: center;
+}
