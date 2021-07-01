@@ -1,1 +1,1 @@
-web: gunicorn PokeTrainer-django.wsgi
+web: gunicorn pokefriends.wsgi
