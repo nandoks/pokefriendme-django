@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@tgs3y#p8-mh=rbldce6#_du=qt=l5e0x)46jv%sz4jppcv5-*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://pokefriendme.herokuapp.com/',]
 
 # Application definition
 
