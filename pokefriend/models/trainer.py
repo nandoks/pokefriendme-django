@@ -6,7 +6,7 @@ from django.utils import timezone
 
 
 class Trainer(models.Model):
-    code = models.CharField(max_length=12)
+    code = models.CharField(max_length=14)
     country = CountryField(blank_label='World Wide', blank=True)
     last_modified = models.DateTimeField(default=timezone.now)
 

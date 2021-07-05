@@ -19,12 +19,16 @@
         </div>
         <div class="text-center mt-3">
             <h2>Filter your search</h2>
-            <div>
+            <div class="row">
                 <form action="{% url 'search' %}" method="GET">
                     {{ search_form }}
                     <button type="submit" class="btn btn-primary">Search</button>
+
                 </form>
             </div>
+            <a href="{% url 'index' %}">
+                <button class="btn btn-success">Reset Search</button>
+            </a>
         </div>
         <div class="trainers">
             {% if trainers %}
@@ -41,7 +45,7 @@
                             <div>
                                 <strong>
                                     <p class="trainer_code">
-                                        {{ trainer.code|slice:"0:4" }} {{ trainer.code|slice:"4:8" }} {{ trainer.code|slice:"8:" }}
+                                        {{ trainer.code|slice:"0:4" }} {{ trainer.code|slice:"4:8" }} {{ trainer.code|slice:"8:12" }}
                                     </p>
                                 </strong>
                                 <hr>

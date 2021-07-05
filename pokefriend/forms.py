@@ -3,14 +3,16 @@ from pokefriend.validation import *
 
 
 class TrainerRegisterForms(forms.ModelForm):
+    code = forms.CharField(max_length=14)
 
     class Meta:
         model = Trainer
         fields = '__all__'
         exclude = ['last_modified']
 
+
     def clean(self):
-        code = self.cleaned_data.get('code')
+        code = self.cleaned_data.get('code').replace(' ','')
         error_list = {}
         code_has_twelve_numbers(code, 'code', error_list)
         code_entered_24h_or_more(code, 'code', error_list)

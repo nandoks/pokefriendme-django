@@ -15,7 +15,7 @@ def index(request):
     if request.method == 'POST':
         form = TrainerRegisterForms(request.POST)
         if form.is_valid():
-            code = form.cleaned_data.get('code')
+            code = form.cleaned_data.get('code').replace(' ', '')
             team = form.cleaned_data.get('team')
             country = form.cleaned_data.get('country')
             trainer = Trainer.objects.filter(code=code).first()

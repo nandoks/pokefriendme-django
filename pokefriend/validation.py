@@ -3,11 +3,12 @@ from datetime import datetime, timedelta
 from .models import Trainer
 from django.utils import timezone
 
+
 def code_has_twelve_numbers(code, label, error_list):
     if not code.isdecimal():
-        error_list[label] = f'Trainer code must only contain numbers'
+        error_list[label] = f'Trainer code must only contain digits'
     if len(code) != 12:
-        error_list[label] = f'Trainer coe must contain 12 numbers and no spaces'
+        error_list[label] = f'Trainer coe must contain 12 digits with 0 or 2 spaces.'
 
 
 def code_entered_24h_or_more(code, label, error_list):
