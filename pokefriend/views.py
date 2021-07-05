@@ -30,7 +30,7 @@ def index(request):
                 trainer.save()
             trainers = Trainer.objects.all()
             form = TrainerRegisterForms()
-        paginator = Paginator(trainers, 15)
+        paginator = Paginator(trainers, 9)
         trainer_page_object = paginator.get_page(1)
         context = {
             'register_form': form,
@@ -38,7 +38,7 @@ def index(request):
             'trainers': trainer_page_object,
         }
         return render(request, 'index.html', context)
-    paginator = Paginator(trainers, 15)
+    paginator = Paginator(trainers, 9)
     page_number = request.GET.get('page') if request.GET.get('page') else 1
     trainer_page_object = paginator.get_page(page_number)
     context = {
