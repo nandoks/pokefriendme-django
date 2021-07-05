@@ -1,5 +1,6 @@
+from django.core.paginator import Paginator
 from django.db.models import Q
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.utils import timezone
 
 from pokefriend.forms import TrainerRegisterForms, TrainerSearchForms
@@ -10,6 +11,7 @@ def index(request):
     register_form = TrainerRegisterForms()
     search_form = TrainerSearchForms()
     trainers = Trainer.objects.all()
+
     if request.method == 'POST':
         form = TrainerRegisterForms(request.POST)
         if form.is_valid():
@@ -26,17 +28,21 @@ def index(request):
                 form.save()
             trainers = Trainer.objects.all()
             form = TrainerRegisterForms()
-
+        paginator = Paginator(trainers, 15)
+        trainer_page_object = paginator.get_page(1)
         context = {
             'register_form': form,
             'search_form': search_form,
-            'trainers': trainers,
+            'trainers': trainer_page_object,
         }
         return render(request, 'index.html', context)
+    paginator = Paginator(trainers, 15)
+    page_number = request.GET.get('page') if request.GET.get('page') else 1
+    trainer_page_object = paginator.get_page(page_number)
     context = {
         'register_form': register_form,
         'search_form': search_form,
-        'trainers': trainers,
+        'trainers': trainer_page_object,
     }
     return render(request, 'index.html', context)
 
