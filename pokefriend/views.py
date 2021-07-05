@@ -1,5 +1,5 @@
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 
 from pokefriend.forms import TrainerRegisterForms, TrainerSearchForms
@@ -63,3 +63,7 @@ def search(request):
         'trainers': trainers,
     }
     return render(request, 'index.html', context)
+
+
+def faq(request):
+    return render(request, 'faq.html')

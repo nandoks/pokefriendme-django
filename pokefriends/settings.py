@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('POKEFRIEND_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://pokefriendme.herokuapp.com/',]
+ALLOWED_HOSTS = ['https://pokefriendme.herokuapp.com/', 'localhost', ]
 
 # Application definition
 
