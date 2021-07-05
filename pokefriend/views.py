@@ -25,7 +25,9 @@ def index(request):
                 trainer.team = team
                 trainer.save()
             else:
-                form.save()
+                trainer = form.save(commit=False)
+                trainer.code = code
+                trainer.save()
             trainers = Trainer.objects.all()
             form = TrainerRegisterForms()
         paginator = Paginator(trainers, 15)
